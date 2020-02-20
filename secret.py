@@ -1,7 +1,7 @@
 import random
 
 hiphop = {
-    'The Box':'The beginning of the song has the sound when you wipe a mirror',
+    'The Box' : 'The beginning of the song has the sound when you wipe a mirror',
     'Life is Good' : 'OVO X FBGM',
     'High Fashion' : 'Up style',
     'Ballin\'' : 'The producer of this song is named after a condiment',
@@ -14,5 +14,11 @@ pop = {
     'Yummy' : 'A word to describe your food',
     'Don\'nt start now' : 'ABC',
     'Falling' : 'This song became viral due to the app Tik Tok',
+    
+}
+
+rnb = {
+    'Blinding Lights' : 'Too bright',
+    'No Guidance' : 'Both artist in the song has had a relationship with Rihanna'
     
 }

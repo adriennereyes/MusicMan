@@ -4,13 +4,14 @@ import sys
 
 hipHop = ['The Box']
 
+# Main loop for the game
 def gameLoop():
     print('Hello')
 
+# Displays the start menu of the game, with the option to play or quit.
 def startMenu():
     option = str(input('Welcome to MusicMan\n- - - - - - - - - -\n  Start or Quit\n'))
-    option.lower()
-    if option == 'start':
+    if option == 'start' or option == 'Start':
         print()
         gameLoop()
     elif option == 'quit':
