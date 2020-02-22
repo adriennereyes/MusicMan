@@ -1,6 +1,4 @@
-import random
-
-hiphop = {
+hipHopHints = {
     'The Box' : 'The beginning of the song has the sound when you wipe a mirror',
     'Life is Good' : 'OVO X FBGM',
     'High Fashion' : 'Up style',
@@ -10,14 +8,14 @@ hiphop = {
     'Dreams and Nightmares' : 'The philly anthem'
 }
 
-pop = {
+popHints = {
     'Yummy' : 'A word to describe your food',
     'Don\'nt start now' : 'ABC',
     'Falling' : 'This song became viral due to the app Tik Tok',
     
 }
 
-rnb = {
+rnbHints = {
     'Blinding Lights' : 'Too bright',
     'No Guidance' : 'Both artist in the song has had a relationship with Rihanna'
     
