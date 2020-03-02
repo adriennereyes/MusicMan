@@ -1,1 +1,1 @@
-# hello-world
+# This is my hangman game project for my CS 171 class at Drexel University.
