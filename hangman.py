@@ -1,9 +1,9 @@
-import random #To give a random song from my lists
-import secret #Module that holds the hints for each song
-import songs #Module that holds all the songs
+import random
+import secret #Module that holds the hints for each song.
+import songs #Module that holds all the songs.
 import sys
 
-# Main loop for the game
+# Main loop for the game.
 def gameLoop(song):
     status = True
     validGuesses = "abcdefghijklmnopqrstuzwxyz0123456789,'"
@@ -11,14 +11,23 @@ def gameLoop(song):
     temp = list(song)
     lives = 6
     update = ''
+    winningGuess = ''
     print('\n\nGood luck! The only possible inputs are a-z, 0-9, apostrophes, and commas...\n You may use one hint by typing "hint".\n')
-    print(song)
+    print(song) # DELETE WHEN GAME IS FINISHED
+    # For loop to print out the hidden song.
     for letter in song:
         if letter == ' ':
             print('  ', end = '')
         else:
             print('_', end = ' ')
-    
+    # For loop to set the winning guess the user has to achieve.
+    for letter in temp:
+            if letter in validGuesses:
+                winningGuess += letter + ' '
+            else:
+                winningGuess += '  '
+
+    # While loop which asks the user to input guesses until the user wins or loses
     while status == True and lives > 0:
         print('\n')
         guess = str(input())
@@ -71,21 +80,26 @@ def gameLoop(song):
                 None
             else: 
                 print(update)
-        for m in lettersGuessed:
-            for n in temp:
-                if m == n:
-                    status = False
+
+        # Checks to see if the user has won the game, if he did it will exit the game.
+        if update == winningGuess:
+            print('YOU WIN!')
+            status = False
+        elif lives <= 0:
+            print('YOU LOSE!')
 
 
 
 
-
+# Prints out the hint of the song the user is trying to guess.
 def hints(song):
     print(secret.hints[song])
 
+# Returns a random song from the music genre the user chose.
 def getSong(music_category):
     return gameLoop(random.choice(music_category).lower())
 
+# Asks the user to pick a music genre.
 def categories():
     category = str(input('Choose a music genre\nHIP-HOP | POP | R&B | COUNTRY\n'))
     category = category.lower()
