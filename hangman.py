@@ -1,7 +1,6 @@
 import random
 import secret #Module that holds the hints for each song.
 import songs #Module that holds all the songs.
-import sys
 
 # Main loop for the game.
 def gameLoop(song):
@@ -13,7 +12,7 @@ def gameLoop(song):
     update = ''
     winningGuess = ''
     print('\n\nGood luck! The only possible inputs are a-z, 0-9, apostrophes, and commas...\n You may use one hint by typing "hint".\n')
-    print(song) # DELETE WHEN GAME IS FINISHED
+    #print(song) # DELETE WHEN GAME IS FINISHED
     # For loop to print out the hidden song.
     for letter in song:
         if letter == ' ':
@@ -38,7 +37,7 @@ def gameLoop(song):
         elif guess == 'hint':
             hints(song)
         elif guess in lettersGuessed:
-            print('\nYou have used that guess already, Try another.')
+            print('\nYou have used that guess already, Try another.\n')
             print(update)
         elif guess not in song:
             lettersGuessed.append(guess)
@@ -83,11 +82,21 @@ def gameLoop(song):
 
         # Checks to see if the user has won the game, if he did it will exit the game.
         if update == winningGuess:
-            print('YOU WIN!')
-            status = False
+            print('\nYOU WIN!\n')
+            replay()
         elif lives <= 0:
-            print('YOU LOSE!')
+            print('\nYOU LOSE!\n')
+            replay()
 
+def replay():
+    playAgain = str(input('\nPlay again?\n\n    Yes or No\n'))
+    if playAgain == 'Yes' or playAgain == 'yes' or playAgain == 'y':
+        categories()
+    elif playAgain == 'No' or playAgain == 'no' or playAgain == 'n':
+        exit()
+    else:
+        print('\nNot a valid option. Try again.\n\n')
+        replay()
 
 
 
@@ -127,7 +136,7 @@ def startMenu():
         print()
         categories()
     elif option == 'quit':
-        sys.exit()
+        exit()
     else:
         print('\n\nOption not recognized. Try again.\n')
         return startMenu()
