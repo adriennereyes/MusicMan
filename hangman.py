@@ -5,14 +5,15 @@ import songs #Module that holds all the songs.
 # Main loop for the game.
 def gameLoop(song):
     status = True
-    validGuesses = "abcdefghijklmnopqrstuzwxyz0123456789,'"
+    validGuesses = "abcdefghijklmnopqrstuvwxyz0123456789,'"
     lettersGuessed = []
     temp = list(song)
     lives = 6
     update = ''
     winningGuess = ''
-    print('\n\nGood luck! The only possible inputs are a-z, 0-9, apostrophes, and commas...\n You may use one hint by typing "hint".\n')
-    #print(song) # DELETE WHEN GAME IS FINISHED
+    print('\n\nGood luck! The only possible inputs are a-z, 0-9, apostrophes, and commas...\nYou may use one hint by typing "hint".\n')
+    print('Lives:', lives, end ='\n\n')
+    print(song) # DELETE WHEN GAME IS FINISHED
     # For loop to print out the hidden song.
     for letter in song:
         if letter == ' ':
@@ -33,15 +34,20 @@ def gameLoop(song):
         if guess == 'hint':
             hints(song)
         elif guess not in validGuesses:
-            print('\nThat was not a valid guess, Guess again.')
-        elif guess == 'hint':
-            hints(song)
+            print('\nThat was not a valid guess, Guess again.\n')
+            print('Lives:', lives)
+            print('\nUSED LETTERS: ', lettersGuessed, '\n')
+            print(update)
         elif guess in lettersGuessed:
             print('\nYou have used that guess already, Try another.\n')
+            print('Lives:', lives)
+            print('\nUSED LETTERS: ', lettersGuessed, '\n')
             print(update)
         elif guess not in song:
             lettersGuessed.append(guess)
+            lives -= 1
             print('\nWrong! Try again.\n')
+            print('Lives:', lives)
             if update == '':
                 for letter in song:
                     if letter in lettersGuessed:
@@ -53,15 +59,15 @@ def gameLoop(song):
             if lettersGuessed == []:
                 None
             else:
-                print('USED LETTERS: ', lettersGuessed, '\n')
+                print('\nUSED LETTERS: ', lettersGuessed, '\n')
             if update == '':
                 None
             else: 
                 print(update)
-            lives -= 1
         elif guess in song:
             lettersGuessed.append(guess)
-            print('\nGood Job! You got it right!')
+            print('\nGood Job! You got it right!\n')
+            print('Lives:', lives)
             update = ''
             for letter in song:
                 if letter in lettersGuessed:
@@ -88,8 +94,9 @@ def gameLoop(song):
             print('\nYOU LOSE!\n')
             replay()
 
+# Asks the user if they want to play again, if yes it calls the categories function again if no exits the program.
 def replay():
-    playAgain = str(input('\nPlay again?\n\n    Yes or No\n'))
+    playAgain = str(input('\nPlay again?\n\nYes(y) or No(n)\n'))
     if playAgain == 'Yes' or playAgain == 'yes' or playAgain == 'y':
         categories()
     elif playAgain == 'No' or playAgain == 'no' or playAgain == 'n':
@@ -110,7 +117,7 @@ def getSong(music_category):
 
 # Asks the user to pick a music genre.
 def categories():
-    category = str(input('Choose a music genre\nHIP-HOP | POP | R&B | COUNTRY\n'))
+    category = str(input('\nChoose a music genre\nHIP-HOP | POP | R&B | COUNTRY\n'))
     category = category.lower()
     if category == 'hip-hop':
         category = songs.hiphop
@@ -124,14 +131,16 @@ def categories():
     elif category == 'country':
         category = songs.country
         return getSong(category)
+    elif category == 'quit':
+        exit()
     else:
         print('\n\nInvalid category, Try again.\n')
-        return categories()
+        categories()
 
 
 # Displays the start menu of the game, with the option to play or quit.
 def startMenu():
-    option = str(input('Welcome to MusicMan\n- - - - - - - - - -\n  Start or Quit\n'))
+    option = str(input('Welcome to MusicMan!\n- - - - - - - - - -\nThis game is hangman, but with a music twist with it.\nYou\'ll be able to choose a music genre which will\nin turn give you a random song to guess in that genre.\n- - - - - - - - - -\n  Start or Quit\n'))
     if option == 'start' or option == 'Start':
         print()
         categories()
@@ -139,6 +148,6 @@ def startMenu():
         exit()
     else:
         print('\n\nOption not recognized. Try again.\n')
-        return startMenu()
+        startMenu()
 
 startMenu()

@@ -12,6 +12,17 @@ hints = {
     'falling' : 'This song became viral due to the app Tik Tok',
     'blinding lights' : 'Too bright',
     'no guidance' : 'Both artist in the song has had a relationship with Rihanna',
-    
+    'don\'t' : 'You must time it perfectly to say the title of this song during the song.',
+    'exchange' : 'Swap',
+    'get you' : '',
+    'thinkin bout you' : 'Channel Orange',
+    'playing games' : 'Currently you are doing what?',
+    'after hours' : 'Late at night',
+    'i hope' : '',
+    '10,000 hours' : 'An amount of time.',
+    'better together' : '',
+    'tennesee whiskey' : 'This is an alcholic beverage.',
+    'speechless' : 'No words',
+    'whiskey glasses' : '',
     
 }
