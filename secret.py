@@ -24,5 +24,19 @@ hints = {
     'tennesee whiskey' : 'This is an alcholic beverage.',
     'speechless' : 'No words',
     'whiskey glasses' : '',
-    
+    'she got the best of me' : '',
+    'roxanne' : '',
+    'memories' : 'Looking back past events.',
+    'say so' : 'This song got popular due to a Tik Tok dance.',
+    'bad guy' : '',
+    'senorita' : 'The word for Ms. in spanish.',
+    'uptown funk' : 'Based on disco type music.',
+    'closer' : 'Near',
+    'sicko mode' : 'AstroWorld',
+    'god\'s plan' : 'The music video of this song was an artists giving people a lot of money.',
+    'sweet home alabama' : '',
+    'beautiful crazy' : 'Pretty psycho',
+    'homesick' : 'When you are missing the place you are from.',
+    'boo\'d up' : 'When you are in a relationship',
+    'drunk in love' : 'Infatuated'
 }
