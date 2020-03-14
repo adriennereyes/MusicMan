@@ -8,7 +8,7 @@ hints = {
     'dreams and nightmares' : 'The philly anthem',
     'dior' : 'Woo',
     'yummy' : 'A word to describe your food',
-    'don\'nt start now' : 'ABC',
+    'don\'t start now' : 'ABC',
     'falling' : 'This song became viral due to the app Tik Tok',
     'blinding lights' : 'Too bright',
     'no guidance' : 'Both artist in the song has had a relationship with Rihanna',

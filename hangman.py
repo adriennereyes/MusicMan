@@ -92,10 +92,10 @@ def gameLoop(song):
 
         # Checks to see if the user has won/lost the game, if he did it will go to a play again option.
         if update == winningGuess:
-            print('\nYOU WIN!\n')
+            print('\nYOU WIN!\nThe song was...', song.upper())
             replay()
         elif lives <= 0:
-            print('\nYOU LOSE!\n')
+            print('\nYOU LOSE!\nThe song was...', song.upper())
             replay()
 
 # Asks the user if they want to play again, if yes it calls the categories function again if no exits the program.
