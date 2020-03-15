@@ -90,7 +90,7 @@ def gameLoop(song):
             else: 
                 print(update)
 
-        # Checks to see if the user has won/lost the game, if he did it will go to a play again option.
+        # Checks to see if the user has won/lost the game, if the user did it will go to a play again option.
         if update == winningGuess:
             print('\nYOU WIN!\nThe song was...', song.upper())
             replay()
@@ -150,7 +150,7 @@ def startMenu():
     if option == 'start' or option == 'Start':
         print()
         categories()
-    elif option == 'quit':
+    elif option == 'quit' or option == 'Quit':
         exit()
     else:
         print('\n\nOption not recognized. Try again.\n')
