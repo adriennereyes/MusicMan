@@ -2,7 +2,7 @@ import random
 import secret # Module that holds the hints for each song.
 import songs # Module that holds all the songs.
 
-# Main loop for the game.
+#  Main loop for the game.
 def gameLoop(song):
     # Assigning variables needed for game.
     status = True
