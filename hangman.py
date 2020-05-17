@@ -1,8 +1,10 @@
 import random
-import secret # Module that holds the hints for each song.
-import songs # Module that holds all the songs.
+import secret  # Module that holds the hints for each song.
+import songs  # Module that holds all the songs.
 
 # Main loop for the game.
+
+
 def gameLoop(song):
     # Assigning variables needed for game.
     status = True
@@ -13,19 +15,19 @@ def gameLoop(song):
     update = ''
     winningGuess = ''
     print('\n\nGood luck! The only possible inputs are a-z, 0-9, apostrophes, and commas...\nYou cannot guess the whole song at once.\nYou may use one hint by typing "hint".\n')
-    print('Lives:', lives, end ='\n\n')
+    print('Lives:', lives, end='\n\n')
     # For loop to print out the hidden song.
     for letter in song:
         if letter == ' ':
-            print('  ', end = '')
+            print('  ', end='')
         else:
-            print('_', end = ' ')
+            print('_', end=' ')
     # For loop to set the winning guess the user has to achieve.
     for letter in temp:
-            if letter in validGuesses:
-                winningGuess += letter + ' '
-            else:
-                winningGuess += '  '
+        if letter in validGuesses:
+            winningGuess += letter + ' '
+        else:
+            winningGuess += '  '
 
     # While loop which asks the user to input guesses until the user wins or loses.
     while status == True and lives > 0:
@@ -64,7 +66,7 @@ def gameLoop(song):
                 print('\nUSED LETTERS/INPUTS: ', lettersGuessed, '\n')
             if update == '':
                 None
-            else: 
+            else:
                 print(update)
         elif guess in song:
             # Condition when a valid input is correct/in the song.
@@ -72,7 +74,7 @@ def gameLoop(song):
             print('\nGood Job! You got it right!\n')
             print('Lives:', lives)
             update = ''
-            # This loops updates the hidden word whether the user correctly guessed a letter which then only reveals 
+            # This loops updates the hidden word whether the user correctly guessed a letter which then only reveals
             for letter in song:
                 if letter in lettersGuessed:
                     update += letter + ' '
@@ -80,14 +82,14 @@ def gameLoop(song):
                     update += '  '
                 else:
                     update += '_' + ' '
-            #print(update)
+            # print(update)
             if lettersGuessed == []:
                 None
             else:
                 print('\nUSED LETTERS/INPUTS: ', lettersGuessed, '\n')
             if update == '':
                 None
-            else: 
+            else:
                 print(update)
 
         # Checks to see if the user has won/lost the game, if the user did it will go to a play again option.
@@ -99,6 +101,8 @@ def gameLoop(song):
             replay()
 
 # Asks the user if they want to play again, if yes it calls the categories function again if no exits the program.
+
+
 def replay():
     playAgain = str(input('\nPlay again?\n\nYes(y) or No(n)\n'))
     if playAgain == 'Yes' or playAgain == 'yes' or playAgain == 'y':
@@ -110,16 +114,19 @@ def replay():
         replay()
 
 
-
 # Prints out the hint of the song the user is trying to guess.
 def hints(song):
     print(secret.hints[song])
 
 # Returns a random song from the music genre the user chose.
+
+
 def getSong(music_category):
     return gameLoop(random.choice(music_category).lower())
 
 # Asks the user to pick a music genre.
+
+
 def categories():
     category = str(input('\nChoose a music genre\nHIP-HOP | POP | R&B | COUNTRY\n'))
     category = category.lower()
@@ -140,7 +147,8 @@ def categories():
         exit()
     else:
         print('\n\nInvalid category, Try again.\n')
-        categories() # Keeps calling on itself until the user inputs a valid option (hip-hop, pop, r&b, country, or quit).
+        # Keeps calling on itself until the user inputs a valid option (hip-hop, pop, r&b, country, or quit).
+        categories()
 
 
 # Displays the start menu of the game, with the option to play or quit.
@@ -154,6 +162,7 @@ def startMenu():
         exit()
     else:
         print('\n\nOption not recognized. Try again.\n')
-        startMenu() # Keeps calling on itself until the user inputs a valid option (start or quit).
+        startMenu()  # Keeps calling on itself until the user inputs a valid option (start or quit).
+
 
 startMenu()
