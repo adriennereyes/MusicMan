@@ -1,1 +1,1 @@
-# This is my hangman game project for my CS 171 class at Drexel University.
+A simple variation of HangMan programmed in Python using CLI.
